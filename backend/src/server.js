@@ -38,7 +38,7 @@ const startServer = async () => {
     await connectDB();
 
     await seedInitialAdmin();
-    if (process.env.NODE_ENV !== "production" && process.env.SEED_DEMO_USERS !== "false") {
+    if (process.env.SEED_DEMO_USERS === "true" || (process.env.NODE_ENV !== "production" && process.env.SEED_DEMO_USERS !== "false")) {
       await seedMissingDemoUsers();
     }
 
